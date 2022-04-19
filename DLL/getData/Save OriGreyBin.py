@@ -6,10 +6,10 @@ vidCap.set(4, 720)
 count = 1
 while True :
 	_,vidOri = vidCap.read()
-	vidGrey = cv2.cvtColor(vidOri, cv2.COLOR_BGR2HSV)
+	vidHSV = cv2.cvtColor(vidOri, cv2.COLOR_BGR2HSV)
 
 	cv2.imshow("Video Ori",vidOri)
-	cv2.imshow("video Grey", vidGrey)
+	cv2.imshow("video HSV", vidHSV)
 
 	k=cv2.waitKey(1) & 0xFF
 	if (k==27):               #tekan esc untuk keluar
@@ -24,5 +24,5 @@ while True :
 
 		# simpan image di folder yang aktif sekarang
 		cv2.imwrite(file_name1, vidOri)
-		cv2.imwrite(file_name2, vidGrey)
+		cv2.imwrite(file_name2, vidHSV)
 		print ("Image", file_name1, file_name2, "Telah Tersimpan")
