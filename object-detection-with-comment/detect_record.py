@@ -36,7 +36,7 @@ while cap.isOpened():
     #baca frame dari tangkapan webcam
     ret, frame = cap.read()
     #frame hsv untuk object deteksi
-    hsv_frame = cv.cvtColor(frame,cv.COLOR_BGR2HSV)
+    hsv_frame = cv.cvtColor(frame,cv.COLOR_BGR2GRAY)
     
     #filter sesuai objek yang ditentukan ( wajah manusia )
     humans = human_cascade.detectMultiScale(hsv_frame,1.9,1)
