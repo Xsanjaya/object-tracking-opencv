@@ -17,7 +17,7 @@ cap = cv.VideoCapture(0)
 now = time.strftime("%A_%d_%b_%Y-%H_%M")
 fourcc = cv.VideoWriter_fourcc(*'X264')
 out = cv.VideoWriter("data/"+now+'.avi', fourcc, 20.0, (640,  480))
-object_target = cv.CascadeClassifier('lib/library.xml')
+object_target = cv.CascadeClassifier('lib/face.xml')
 
 while cap.isOpened():
 	ret, frame = cap.read()
