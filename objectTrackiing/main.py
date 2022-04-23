@@ -5,7 +5,7 @@ from servo import *
 center_x=80
 center_y=90
 position_x(center_x)
-position_y(90)
+position_y(center_x)
 
 pos_x=center_x
 pos_y=center_y
