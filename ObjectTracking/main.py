@@ -23,16 +23,19 @@ while cap.isOpened():
 	ret, frame = cap.read()
 	frame_target = cv.cvtColor(frame,cv.COLOR_BGR2GRAY)
 	react = object_target.detectMultiScale(frame_target,1.9,1)
+	median = cv.medianBlur(react, 9)
+	frame_hsv = cv.cvtColor(median,cv.COLOR_BGR2HSV)
 	
 	if not ret:
 		print("Can't receive frame (stream end?). Exiting ...")
 		break
 	
 	for (x,y,w,h) in react:
+		roi_color = frame[y:y+h, x:x+w]
 		center_coordinates = x + w // 2, y + h // 2
 		radius = w // w
 		cv.circle(frame, center_coordinates, radius, (255,0,0), 10)
-		# cv.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),1)
+		cv.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),1)
 
 		if w>160:
 			timer_x=0
